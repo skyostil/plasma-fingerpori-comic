@@ -40,21 +40,21 @@ function pageRetrieved(id, data)
         }
     }
     if (id == comic.Page) {
-        var re = new RegExp("hs.mediadelivery.fi/img/some/cartoons/(.+)\\.jpg");
+        var re = new RegExp("hs.mediadelivery.fi/img/1920/(.+)\\.jpg");
         var match = re.exec(data);
         var url;
         if (match != null) {
-            url = "https://hs.mediadelivery.fi/img/some/cartoons/" + match[1] + ".jpg";
+            url = "https://hs.mediadelivery.fi/img/1920/" + match[1] + ".jpg";
             var reb = new RegExp("car-(\\d+)");
             var matchb = reb.exec(data);
             if (match != null) {
                 comic.identifier = matchb[1];
             }
         } else {
-            re = new RegExp("hs.mediadelivery.fi/img/some/cartoons/(.+)\\.png");
+            re = new RegExp("hs.mediadelivery.fi/img/1920/(.+)\\.png");
             match = re.exec(data);
             if (match != null) {
-                url = "https://hs.mediadelivery.fi/img/some/cartoons/" + match[1] + ".png";
+                url = "https://hs.mediadelivery.fi/img/1920/" + match[1] + ".png";
                 var reb = new RegExp("car-(\\d+)");
                 var matchb = reb.exec(data);
                 if (match != null) {

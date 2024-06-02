@@ -21,10 +21,10 @@ function init()
 {
     comic.comicAuthor = "Pertti Jarla";
     if (comic.identifier == new String) {
-        comic.requestPage("http://www.hs.fi/fingerpori/", comic.User);
+        comic.requestPage("https://www.hs.fi/fingerpori/", comic.User);
     }
     else {
-        comic.websiteUrl = "http://www.hs.fi/fingerpori/car-" + comic.identifier + ".html";
+        comic.websiteUrl = "https://www.hs.fi/fingerpori/car-" + comic.identifier + ".html";
         comic.requestPage(comic.websiteUrl, comic.Page);
     }
 }
@@ -36,25 +36,25 @@ function pageRetrieved(id, data)
         re = new RegExp("/fingerpori/car-(\\d+)");
         match = re.exec(data);
         if (match != null) {
-            comic.requestPage("http://www.hs.fi/fingerpori/car-" + match[1] + ".html", comic.Page);
+            comic.requestPage("https://www.hs.fi/fingerpori/car-" + match[1] + ".html", comic.Page);
         }
     }
     if (id == comic.Page) {
-        var re = new RegExp("hs.mediadelivery.io/img/1920/(.+)\\.jpg");
+        var re = new RegExp("hs.mediadelivery.fi/img/some/cartoons/(.+)\\.jpg");
         var match = re.exec(data);
         var url;
         if (match != null) {
-            url = "http://hs.mediadelivery.io/img/1920/" + match[1] + ".jpg";
+            url = "https://hs.mediadelivery.fi/img/some/cartoons/" + match[1] + ".jpg";
             var reb = new RegExp("car-(\\d+)");
             var matchb = reb.exec(data);
             if (match != null) {
                 comic.identifier = matchb[1];
             }
         } else {
-            re = new RegExp("hs.mediadelivery.io/img/1920/(.+)\\.png");
+            re = new RegExp("hs.mediadelivery.fi/img/some/cartoons/(.+)\\.png");
             match = re.exec(data);
             if (match != null) {
-                url = "http://hs.mediadelivery.io/img/1920/" + match[1] + ".png";
+                url = "https://hs.mediadelivery.fi/img/some/cartoons/" + match[1] + ".png";
                 var reb = new RegExp("car-(\\d+)");
                 var matchb = reb.exec(data);
                 if (match != null) {
